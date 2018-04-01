@@ -1,6 +1,6 @@
 <template>
-  <nav class="teal lighten-2">
-    <div class="nav-wrapper container teal lighten-2">
+  <nav class="teal">
+    <div class="nav-wrapper container teal">
       <nuxt-link to="/" class="brand-logo">{{ title }}</nuxt-link>
 
       <a href="#" data-activates="slide-out" class="button-collapse">
