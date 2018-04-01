@@ -16,6 +16,14 @@ exports.remove = (req, res, next) => {
   res.json({message: 'OK'})
 }
 
+exports.getById = (req, res, next) => {
+  Post.findById(req.params.id)
+    .then(post => res.json(PostsResponser.one(post)))
+    .catch(next)
+}
+
 exports.index = (req, res, next) => {
-  res.json({message: 'OK'})
+  Post.find()
+    .then(posts => res.json(PostsResponser.all(posts)))
+    .catch(next)
 }

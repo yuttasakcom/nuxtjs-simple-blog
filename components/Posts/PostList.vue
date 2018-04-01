@@ -2,7 +2,7 @@
   <div>
     <section class="row">
       <PostPreview
-        class="col s12 m4"
+        class="col s12 m6 l4 xl3"
         v-for="post in posts"
         :key="post.id"
         :id="post.id"
@@ -10,6 +10,8 @@
         :previewText="post.previewText"
         :thumbnail="post.thumbnail"
         :is-admin="isAdmin"
+        :views="post.views"
+        :likes="post.likes"
       />
     </section>
   </div>

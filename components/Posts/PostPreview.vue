@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="postLink">
+  <div>
     <article>
       <div class="card">
         <div class="card-image">
@@ -10,11 +10,23 @@
           <p>{{ previewText }}</p>
         </div>
         <div class="card-action">
-          Read: 12 Like: 2 Unlike: 1
+          <div class="card-icon">
+            <div>
+              <i class="material-icons left teal-text">thumb_up</i>{{ likes }}
+            </div>
+
+            <div>
+              <i class="material-icons left teal-text">comment</i>0
+            </div>
+
+            <div>
+              <i class="material-icons left teal-text">visibility</i>{{ views }}
+            </div>
+          </div>
         </div>
       </div>
     </article>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
@@ -40,6 +52,12 @@ export default {
     isAdmin: {
       type: Boolean,
       required: true
+    },
+    views: {
+      type: Number
+    },
+    likes: {
+      type: Number
     }
   },
   computed: {
@@ -49,3 +67,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.card-icon {
+  display: flex;
+  justify-content:space-around;
+}
+</style>
