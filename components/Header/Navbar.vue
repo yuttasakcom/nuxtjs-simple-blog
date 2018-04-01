@@ -7,7 +7,7 @@
         <i class="material-icons">menu</i>
       </a>
 
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down" v-if="menuItems">
         <nuxt-link tag="li" v-for="item in menuItems" :key="item.title" :to="item.to">
           <a>
             <i class="material-icons left" v-if="item.icon">{{ item.icon }}</i>{{ item.title }}
@@ -26,8 +26,7 @@ export default {
       required: true
     },
     menuItems: {
-      type: Array,
-      default: []
+      type: Array
     }
   }
 }
