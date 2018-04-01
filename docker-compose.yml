@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+
+  mongo:
+    image: mongo:3.6.3
+    container_name: mongo
+    volumes:
+      - /data/mongo:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+
+  redis:
+    image: redis:4.0.9
+    container_name: redis
+    volumes:
+      - /data/redis:/data
+    ports:
+      - "6379:6379"
+    restart: always

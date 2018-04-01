@@ -49,12 +49,24 @@ module.exports = {
   /*
      ** Plugins to load before mounting the App
      */
-  plugins: [],
+  plugins: [
+    '~plugins/core-components.js'
+  ],
 
   /*
      ** Nuxt.js modules
      */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios'
+  ],
+
+  /*
+    ** Axios config
+    */
+  axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    credentials: false
+  },
 
   /*
      ** Build configuration
