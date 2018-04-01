@@ -45,7 +45,8 @@
 export default {
   props: {
     menuItems: {
-      type: Array
+      type: Array,
+      default: []
     }
   },
   mounted() {

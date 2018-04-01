@@ -26,7 +26,8 @@ export default {
       required: true
     },
     menuItems: {
-      type: Array
+      type: Array,
+      default: []
     }
   }
 }
