@@ -1,3 +1,3 @@
 <template>
-  <div>Index</div>
+  <div class="container">Index Page</div>
 </template>

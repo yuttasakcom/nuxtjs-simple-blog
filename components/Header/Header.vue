@@ -20,8 +20,8 @@ export default {
         { icon: 'subject', title: 'Blog', to: '/posts' },
         { icon: 'face', title: 'About', to: '/about' },
         { icon: 'person', title: 'Admin', to: '/admin' },
-        { title: 'Sign up', to: '/users/signup' },
-        { title: 'Sign in', to: '/users/signin' }
+        { title: 'Sign up', to: '/auth/signup' },
+        { title: 'Sign in', to: '/auth/signin' }
       ]
     }
   }
