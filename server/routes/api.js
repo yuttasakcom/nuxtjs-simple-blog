@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const PostsController = require('../controllers/postsController')
+const BlogController = require('../controllers/blogController')
 
-router.post('/posts', PostsController.create)
-router.put('/posts/:id', PostsController.edit)
-router.delete('/posts/:id', PostsController.remove)
-router.get('/posts/:id', PostsController.getById)
-router.get('/posts', PostsController.index)
+router.post('/blogs', BlogController.create)
+router.put('/blogs/:id', BlogController.edit)
+router.delete('/blogs/:id', BlogController.remove)
+router.get('/blogs/:id', BlogController.getById)
+router.get('/blogs', BlogController.index)
 
 module.exports = router

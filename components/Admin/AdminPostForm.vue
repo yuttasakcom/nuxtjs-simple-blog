@@ -2,25 +2,25 @@
   <form @submit.prevent="onSave">
     
     <AppControlInput
-      v-model="editedPost.title"
+      v-model="editedBlog.title"
     >Title</AppControlInput>
     
     <AppControlInput
       control-type="textarea"
-      v-model="editedPost.content"
+      v-model="editedBlog.content"
     >Content</AppControlInput>
     
     <AppControlInput
-      v-model="editedPost.thumbnail"
+      v-model="editedBlog.thumbnail"
     >Thumbnail Link</AppControlInput>
     
     <AppControlInput
       control-type="textarea"
-      v-model="editedPost.previewText"
+      v-model="editedBlog.previewText"
     >Preview Text</AppControlInput>
     
     <AppControlInput
-      v-model="editedPost.author"
+      v-model="editedBlog.author"
     >Author Name</AppControlInput>
 
     <AppButton type="submit" icon="send">Save</AppButton>
@@ -36,15 +36,15 @@ export default {
     AppButton
   },
   props: {
-    post: {
+    blog: {
       type: Object,
       required: false
     }
   },
   data() {
     return {
-      editedPost: this.post
-        ? { ...this.post }
+      editedBlog: this.blog
+        ? { ...this.blog }
         : {
             author: '',
             title: '',
@@ -56,10 +56,10 @@ export default {
   },
   methods: {
     onSave() {
-      if(this.editedPost.title == '') {
+      if(this.editedBlog.title == '') {
         return 
       }
-      this.$emit('submit', this.editedPost)
+      this.$emit('submit', this.editedBlog)
     }
   }
 }

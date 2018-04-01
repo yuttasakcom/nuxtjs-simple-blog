@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <section>
-      <h1>{{ loadedPost.title }}</h1>
+      <h1>{{ loadedBlog.title }}</h1>
       <div>
-        <div>Last updated on {{ loadedPost.updatedAt | date }}</div>
-        <div>Written by {{ loadedPost.author }}</div>
+        <div>Last updated on {{ loadedBlog.updatedAt | date }}</div>
+        <div>Written by {{ loadedBlog.author }}</div>
       </div>
-      <p>{{ loadedPost.content }}</p>
+      <p>{{ loadedBlog.content }}</p>
     </section>
 
     <section>
@@ -21,16 +21,16 @@
 export default {
   asyncData(ctx) {
     return ctx.app.$axios
-      .$get(`/api/posts/${ctx.params.id}`)
+      .$get(`/api/blogs/${ctx.params.id}`)
       .then(data => {
         return {
-          loadedPost: data
+          loadedBlog: data
         }
       })
       .catch(e => ctx.error(e))
   },
   head() {
-    return { title: this.loadedPost.title }
+    return { title: this.loadedBlog.title }
   }
 }
 </script>

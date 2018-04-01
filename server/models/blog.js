@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const PostSchema = new Schema({
+const blogSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -21,18 +21,6 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  likes: {
-    type: Number,
-    default: 0
-  },
-  views: {
-    type: Number,
-    default: 0
-  },
-  shares: {
-    type: Number,
-    default: 0
-  },
   createdAt: {
     type: Date,
     default: Date.now()
@@ -43,6 +31,22 @@ const PostSchema = new Schema({
   }
 })
 
-const Post = mongoose.model('post', PostSchema)
+blogSchema.virtual('likes').get(function () {
+  return 1
+})
 
-module.exports = Post
+blogSchema.virtual('comments').get(function () {
+  return 2
+})
+
+blogSchema.virtual('shares').get(function () {
+  return 3
+})
+
+blogSchema.virtual('views').get(function () {
+  return 4
+})
+
+const blog = mongoose.model('blog', blogSchema)
+
+module.exports = blog

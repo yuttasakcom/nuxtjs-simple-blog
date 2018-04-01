@@ -10,8 +10,8 @@
 import axios from 'axios'
 export default {
   methods: {
-    onSubmitted(postData) {
-      this.$store.dispatch('addPost', postData)
+    onSubmitted(blogData) {
+      this.$store.dispatch('addBlog', blogData)
         .then(() => {
           this.$router.push('/admin')
         })

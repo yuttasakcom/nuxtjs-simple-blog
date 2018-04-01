@@ -10,6 +10,7 @@ const fileds = [
   'likes',
   'views',
   'shares',
+  'comments',
   'createdAt',
   'updatedAt'
 ]

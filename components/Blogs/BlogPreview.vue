@@ -4,23 +4,29 @@
       <div class="card">
         <div class="card-image">
           <img :src="thumbnail">
-          <span class="card-title">{{ title }}</span>
         </div>
         <div class="card-content">
+          <div class="card-title">
+            <nuxt-link :to="blogLink">{{ title }}</nuxt-link>
+          </div>
           <p>{{ previewText }}</p>
         </div>
         <div class="card-action">
           <div class="card-icon">
             <div>
-              <i class="material-icons left teal-text">thumb_up</i>{{ likes }}
+              <i class="material-icons left blue-text">thumb_up</i>{{ likes }}
             </div>
 
             <div>
-              <i class="material-icons left teal-text">comment</i>0
+              <i class="material-icons left orange-text">comment</i>{{ comments }}
             </div>
 
             <div>
-              <i class="material-icons left teal-text">visibility</i>{{ views }}
+              <i class="material-icons left teal-text">share</i>{{ shares }}
+            </div>
+
+            <div>
+              <i class="material-icons left pink-text">visibility</i>{{ views }}
             </div>
           </div>
         </div>
@@ -31,7 +37,6 @@
 
 <script>
 export default {
-  name: 'PostPreview',
   props: {
     id: {
       type: String,
@@ -58,11 +63,17 @@ export default {
     },
     likes: {
       type: Number
+    },
+    comments: {
+      type: Number
+    },
+    shares: {
+      type: Number
     }
   },
   computed: {
-    postLink() {
-      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
+    blogLink() {
+      return this.isAdmin ? '/admin/blobs/' + this.id : '/blogs/' + this.id
     }
   }
 }
@@ -71,6 +82,6 @@ export default {
 <style scoped>
 .card-icon {
   display: flex;
-  justify-content:space-around;
+  justify-content:space-between;
 }
 </style>

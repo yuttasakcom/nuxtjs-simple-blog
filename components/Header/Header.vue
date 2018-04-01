@@ -17,7 +17,7 @@ export default {
     return {
       title: 'Simple Blog',
       menuItems: [
-        { icon: 'subject', title: 'Blog', to: '/posts' },
+        { icon: 'subject', title: 'Blog', to: '/blogs' },
         { icon: 'face', title: 'About', to: '/about' },
         { icon: 'person', title: 'Admin', to: '/admin' },
         { title: 'Sign up', to: '/auth/signup' },
