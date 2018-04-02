@@ -30,10 +30,10 @@ const blogSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
   }],
-  userViews: [{
-    type: Schema.Types.ObjectId,
-    ref: 'user'
-  }],
+  views: {
+    type: Number,
+    default: 0
+  },
   createdAt: {
     type: Date,
     default: Date.now()
@@ -54,10 +54,6 @@ blogSchema.virtual('comments').get(function () {
 
 blogSchema.virtual('shares').get(function () {
   return this.userShares.length
-})
-
-blogSchema.virtual('views').get(function () {
-  return this.userViews.length
 })
 
 const blog = mongoose.model('blog', blogSchema)

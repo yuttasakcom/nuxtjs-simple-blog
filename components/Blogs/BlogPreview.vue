@@ -2,10 +2,10 @@
   <div>
     <article>
       <div class="card">
-        <div class="card-image">
+        <div class="card-image pointer" @click="link">
           <img :src="thumbnail">
         </div>
-        <div class="card-content">
+        <div class="card-content pointer" @click="link">
           <div class="card-title">
             <nuxt-link :to="blogLink">{{ title }}</nuxt-link>
           </div>
@@ -75,6 +75,11 @@ export default {
     blogLink() {
       return this.isAdmin ? '/admin/blobs/' + this.id : '/blogs/' + this.id
     }
+  },
+  methods: {
+    link(){
+      this.$router.push(this.blogLink)
+    }
   }
 }
 </script>
@@ -83,5 +88,9 @@ export default {
 .card-icon {
   display: flex;
   justify-content:space-between;
+}
+
+.pointer {
+  cursor: pointer;
 }
 </style>
