@@ -4,12 +4,15 @@ const BlogResponser = require('../responses/blogResponse')
 exports.create = (req, res, next) => {
   const params = req.body
   Blog.create(params)
-    .then(post => res.json(BlogResponser.one(post)))
+    .then(blog => res.json(BlogResponser.one(blog)))
     .catch(next)
 }
 
 exports.edit = (req, res, next) => {
-  res.json({message: 'OK'})
+  const params = req.body
+  Blog.findByIdAndUpdate({_id: req.params.id}, {$set: params})
+    .then(blog => res.json(BlogResponser.one(blog)))
+    .catch(next)
 }
 
 exports.remove = (req, res, next) => {
@@ -18,12 +21,12 @@ exports.remove = (req, res, next) => {
 
 exports.getById = (req, res, next) => {
   Blog.findById(req.params.id)
-    .then(post => res.json(BlogResponser.one(post)))
+    .then(blog => res.json(BlogResponser.one(blog)))
     .catch(next)
 }
 
 exports.index = (req, res, next) => {
   Blog.find()
-    .then(posts => res.json(BlogResponser.all(posts)))
+    .then(blogs => res.json(BlogResponser.all(blogs)))
     .catch(next)
 }

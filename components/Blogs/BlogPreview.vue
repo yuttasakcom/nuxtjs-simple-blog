@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     blogLink() {
-      return this.isAdmin ? '/admin/blobs/' + this.id : '/blogs/' + this.id
+      return this.isAdmin ? '/admin/blogs/' + this.id : '/blogs/' + this.id
     }
   },
   methods: {

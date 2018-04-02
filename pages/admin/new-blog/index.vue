@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section>
-      <AdminPostForm @submit="onSubmitted" />
+      <AdminBlogForm @submit="onSubmitted" />
     </section>
   </div>
 </template>
@@ -11,7 +11,7 @@ import axios from 'axios'
 export default {
   methods: {
     onSubmitted(blogData) {
-      this.$store.dispatch('addBlog', blogData)
+      this.$store.dispatch('ADD_BLOG', blogData)
         .then(() => {
           this.$router.push('/admin')
         })

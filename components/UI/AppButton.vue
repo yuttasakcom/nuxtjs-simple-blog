@@ -6,8 +6,14 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot />
-    <i class="material-icons right">{{ icon }}</i>
+    <div v-if="type === 'submit'">
+      <slot />
+      <i class="material-icons right">{{ icon }}</i>
+    </div>
+    <div v-else>
+      <slot />
+      <i class="material-icons left">{{ icon }}</i>
+    </div>
   </button>
 </template>
 

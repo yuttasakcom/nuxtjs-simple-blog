@@ -23,7 +23,10 @@
       v-model="editedBlog.author"
     >Author Name</AppControlInput>
 
-    <AppButton type="submit" icon="send">Save</AppButton>
+    <div class="d-flex justify-content-between">
+      <AppButton class="red" type="button" icon="arrow_back" @click="onCancel">Cancel</AppButton>
+      <AppButton type="submit" icon="send">Save</AppButton>
+    </div>
   </form>
 </template>
 
@@ -56,10 +59,10 @@ export default {
   },
   methods: {
     onSave() {
-      if(this.editedBlog.title == '') {
-        return 
-      }
       this.$emit('submit', this.editedBlog)
+    },
+    onCancel() {
+      this.$router.push('/admin')
     }
   }
 }
