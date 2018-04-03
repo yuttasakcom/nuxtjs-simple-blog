@@ -2,6 +2,11 @@
   <div>
     <article>
       <div class="card">
+        <div class="card-action-delete pointer" v-if="isAdmin">
+          <a href="#modal">
+          <i class="material-icons left red-text" @click="remove">delete</i>
+          </a>
+        </div>
         <div class="card-image pointer" @click="link">
           <img :src="thumbnail">
         </div>
@@ -12,7 +17,7 @@
           <p>{{ previewText }}</p>
         </div>
         <div class="card-action">
-          <div class="card-icon">
+          <div class="card-action-icon">
             <div>
               <i class="material-icons left blue-text">thumb_up</i>{{ likes }}
             </div>
@@ -71,6 +76,16 @@ export default {
       type: Number
     }
   },
+  mouted() {
+    let elem = document.querySelector('.modal');
+    let instance = M.Modal.init(elem, options);
+
+    instance.open()
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  },
   computed: {
     blogLink() {
       return this.isAdmin ? '/admin/blogs/' + this.id : '/blogs/' + this.id
@@ -79,13 +94,23 @@ export default {
   methods: {
     link(){
       this.$router.push(this.blogLink)
+    },
+    remove() {
+      console.log(this.id);
     }
   }
 }
 </script>
 
 <style scoped>
-.card-icon {
+.card-action-delete {
+  position:absolute;
+  z-index: 100;
+  right: 0;
+  margin-top: 5px;
+}
+
+.card-action-icon {
   display: flex;
   justify-content:space-between;
 }
